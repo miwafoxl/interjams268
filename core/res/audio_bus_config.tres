@@ -1,0 +1,27 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://k6tgwqe4wmc7"]
+
+[resource]
+bus/1/name = &"SFX"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/2/name = &"SFX LO"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -5.9342504
+bus/2/send = &"SFX"
+bus/3/name = &"SFX HI"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = -3.1173582
+bus/3/send = &"SFX"
+bus/4/name = &"MUSIC"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = -10.074136
+bus/4/send = &"Master"

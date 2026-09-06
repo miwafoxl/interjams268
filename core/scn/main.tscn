@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bj3db1dyycyj6"]
+
+[ext_resource type="Script" uid="uid://ilm7n8mphts2" path="res://core/src/autoload/SoundBlaster.gd" id="1_bl8ru"]
+[ext_resource type="Script" uid="uid://d4cwhjt2tgw3m" path="res://core/src/autoload/SceneMaster.gd" id="2_lkrpm"]
+[ext_resource type="PackedScene" uid="uid://0wyvdch3vdwq" path="res://core/scn/test_scenes/default.tscn" id="3_bl8ru"]
+[ext_resource type="Script" uid="uid://bpdxt37o4qsg5" path="res://core/src/autoload/ScoreMaster.gd" id="4_e5fu1"]
+
+[node name="Main" type="Node" unique_id=1918729238]
+
+[node name="SoundBlaster" type="Node" parent="." unique_id=1783609689]
+script = ExtResource("1_bl8ru")
+
+[node name="SceneMaster" type="Node" parent="." unique_id=1286801116]
+script = ExtResource("2_lkrpm")
+preset_scenes = Dictionary[String, PackedScene]({
+"default": ExtResource("3_bl8ru")
+})
+
+[node name="ScoreMaster" type="Node" parent="." unique_id=1951402427]
+script = ExtResource("4_e5fu1")
