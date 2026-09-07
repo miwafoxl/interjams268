@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ilm7n8mphts2" path="res://core/src/autoload/SoundBlaster.gd" id="1_bl8ru"]
 [ext_resource type="Script" uid="uid://d4cwhjt2tgw3m" path="res://core/src/autoload/SceneMaster.gd" id="2_lkrpm"]
-[ext_resource type="PackedScene" uid="uid://0wyvdch3vdwq" path="res://core/scn/test_scenes/default.tscn" id="3_bl8ru"]
+[ext_resource type="PackedScene" uid="uid://beo57todjun16" path="res://game/scenes/map/Testing.tscn" id="3_bl8ru"]
 [ext_resource type="Script" uid="uid://bpdxt37o4qsg5" path="res://core/src/autoload/ScoreMaster.gd" id="4_e5fu1"]
 
 [node name="Main" type="Node" unique_id=1918729238]

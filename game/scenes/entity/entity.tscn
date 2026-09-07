@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dpeg8giugr232"]
+
+[ext_resource type="Script" uid="uid://w8it33lcygta" path="res://game/scenes/entity/entity.gd" id="1_82wee"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xw857"]
+lightmap_size_hint = Vector2i(15, 13)
+radius = 0.42919922
+height = 3.5
+radial_segments = 32
+rings = 1
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h4hkj"]
+radius = 0.46289063
+height = 3.6575928
+
+[node name="ENTITY" type="CharacterBody3D" unique_id=575126162]
+script = ExtResource("1_82wee")
+
+[node name="MESH" type="MeshInstance3D" parent="." unique_id=1499530194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7914969, 0)
+mesh = SubResource("CapsuleMesh_xw857")
+
+[node name="COL SH" type="CollisionShape3D" parent="." unique_id=1677182180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.869042, 0)
+shape = SubResource("CapsuleShape3D_h4hkj")

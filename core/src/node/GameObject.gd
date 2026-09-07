@@ -105,14 +105,14 @@ func get_behaviour_match(expr: String = "B*") -> Array[Behaviour]:
 
 ## Insert the behaviour [code]behaviour[/code] following the index [code]at_index[/code].
 ## If negative, the value will be considered from the end of the array.
-func insert_behaviour(behaviour: Behaviour) -> bool:
+func insert_behaviour(behaviour: Behaviour) -> void:
 	var _script: GDScript = behaviour.get_script()
 	var _name: String = _script.get_global_name()
 	if _script == null:
-		return false
+		return
 	add_script(_script, _name)
 	_log_standard("Inserted behaviour '%s'" % _name)
-	return behaviours.set(_name, behaviour)
+	return 
 
 ## Updates the behaviour list based on the scripts array. Ran automatically by
 ## GameObject.
