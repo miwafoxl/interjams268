@@ -24,7 +24,7 @@ func action_physics(_delta: float) -> void:
 		body.set_velocity(Vector3(_velocity.x, body.velocity.y, _velocity.z))
 	else:
 		body.set_velocity(Vector3(0, body.velocity.y, 0))
-	if body.velocity.y < JUMP_THRESHOLD:
+	if body.is_on_floor() and (body.velocity.y < JUMP_THRESHOLD):
 		body.velocity.y += vector.y * speed
 	body.move_and_slide()
 
