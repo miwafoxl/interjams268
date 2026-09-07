@@ -14,15 +14,30 @@ points = PackedVector3Array(-8, 0, 0, 8, 0, 0, -8, -20, 48.5, 8, -20, 48.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_h4hkj"]
 size = Vector3(122.97357, 0.1, 73.584595)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_omrot"]
+sky_top_color = Color(0.62987995, 0.8195915, 0.8842534, 1)
+sky_curve = 0.47075012
+
+[sub_resource type="Sky" id="Sky_ju0tc"]
+sky_material = SubResource("ProceduralSkyMaterial_omrot")
+
+[sub_resource type="Environment" id="Environment_h4hkj"]
+background_mode = 2
+sky = SubResource("Sky_ju0tc")
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0385
+volumetric_fog_length = 7.0
+
 [node name="Testing" type="Node3D" unique_id=1787220777]
 script = ExtResource("1_ju0tc")
 
 [node name="LEVEL MESH" parent="." unique_id=984467645 instance=ExtResource("1_e78k8")]
 
 [node name="SUN" type="DirectionalLight3D" parent="." unique_id=1552061537]
-transform = Transform3D(0.9830318, 0.054249264, 0.17522933, -0.1818559, 0.41328424, 0.89225805, -0.02401516, -0.90898466, 0.41613713, 1.9792328, 0, 0)
-light_color = Color(0.4806887, 0.5222692, 0.44760865, 1)
+transform = Transform3D(-0.002248317, -0.8661061, 0.49985558, -0.30643058, 0.47640672, 0.82409775, -0.95189023, -0.15131828, -0.2664724, 1.9792328, 0, 0)
+light_color = Color(0.6539951, 0.60932237, 0.56809485, 1)
 shadow_enabled = true
+sky_mode = 1
 
 [node name="MAP COL" type="StaticBody3D" parent="." unique_id=1447148933]
 
@@ -41,6 +56,7 @@ shape = SubResource("BoxShape3D_h4hkj")
 
 [node name="ENTITY" parent="." unique_id=575126162 instance=ExtResource("2_7jdii")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0065174, 0.009959102, -4.2120714)
+verbose = true
 scripts = Array[GDScript]([ExtResource("3_jwix3")])
 
 [node name="HEAD" type="Node3D" parent="ENTITY" unique_id=453387526]
@@ -48,3 +64,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="CAM" type="Camera3D" parent="ENTITY/HEAD" unique_id=1801108264]
 current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1088502684]
+environment = SubResource("Environment_h4hkj")
