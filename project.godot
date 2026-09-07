@@ -77,9 +77,8 @@ jump={
 [physics]
 
 3d/physics_engine="Jolt Physics"
-3d/default_gravity=16.0
+3d/default_gravity=24.0
 
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="mobile"
