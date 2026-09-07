@@ -21,5 +21,8 @@ func process(_delta: float) -> void:
 				input.jump, input.move_normal.y).normalized())
 		if input is BPlayerInput:
 			var _player_input: BPlayerInput = input
+			# TODO: maybe turn the head into a GameObject "GPlayerPOV"?
+			# TODO: GPlayerPOV.set_current(true)
 			$HEAD.rotate_y(-_player_input.aim_transformed.x)
 			$HEAD/CAM.rotate_x(-_player_input.aim_transformed.y)
+			$HEAD/CAM.rotation.x = clamp($HEAD/CAM.rotation.x, deg_to_rad(-80), deg_to_rad(80))
