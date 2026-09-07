@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://beo57todjun16"]
 
 [ext_resource type="PackedScene" uid="uid://bcc1jiynq30s5" path="res://game/scenes/map/source/roam_map.blend" id="1_e78k8"]
+[ext_resource type="Script" uid="uid://ms4q1gie1c86" path="res://game/scenes/map/Testing.gd" id="1_ju0tc"]
 [ext_resource type="PackedScene" uid="uid://dpeg8giugr232" path="res://game/scenes/entity/entity.tscn" id="2_7jdii"]
+[ext_resource type="Script" uid="uid://dhenlmgfxfip8" path="res://game/scripts/behaviour/B3DMovement.gd" id="3_jwix3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xw857"]
 size = Vector3(250.52087, 0.01, 195.1148)
@@ -10,9 +12,10 @@ size = Vector3(250.52087, 0.01, 195.1148)
 points = PackedVector3Array(-8, 0, 0, 8, 0, 0, -8, -20, 48.5, 8, -20, 48.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h4hkj"]
-size = Vector3(122.97357, 0.1, 34.454346)
+size = Vector3(122.97357, 0.1, 73.584595)
 
 [node name="Testing" type="Node3D" unique_id=1787220777]
+script = ExtResource("1_ju0tc")
 
 [node name="LEVEL MESH" parent="." unique_id=984467645 instance=ExtResource("1_e78k8")]
 
@@ -33,11 +36,15 @@ shape = SubResource("ConvexPolygonShape3D_x6ske")
 debug_color = Color(0.8857458, 0.33067507, 0, 1)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="MAP COL" unique_id=1902613782]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.1863, -20.022472, 105.387955)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.1863, -20.022472, 85.82283)
 shape = SubResource("BoxShape3D_h4hkj")
-
-[node name="CAM" type="Camera3D" parent="." unique_id=1801108264]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1313148, 5.50192, 9.621563)
 
 [node name="ENTITY" parent="." unique_id=575126162 instance=ExtResource("2_7jdii")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0065174, 0.009959102, -4.2120714)
+scripts = Array[GDScript]([ExtResource("3_jwix3")])
+
+[node name="HEAD" type="Node3D" parent="ENTITY" unique_id=453387526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="CAM" type="Camera3D" parent="ENTITY/HEAD" unique_id=1801108264]
+current = true
