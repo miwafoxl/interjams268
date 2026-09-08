@@ -33,6 +33,10 @@ alignment = 2
 [node name="HBOX INTERACT" parent="MARGINC/VBOXC STATUS" unique_id=943756598 instance=ExtResource("1_e1yxh")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+untranslated_string = &"GAME.INTERACTION.INTERACT"
+action_name = "interact"
 
 [node name="MARGINC" type="MarginContainer" parent="MARGINC/VBOXC STATUS" unique_id=908996918]
 layout_mode = 2
