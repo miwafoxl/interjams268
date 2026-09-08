@@ -1,18 +1,51 @@
 [gd_scene format=3 uid="uid://cucmkxyp82ff7"]
 
-[node name="HBOX INTERACT" type="HBoxContainer" unique_id=943756598]
-alignment = 1
+[ext_resource type="Script" uid="uid://dyjupntuf1cm8" path="res://game/scenes/ui/InputPromptText/InputPromptText.gd" id="1_eoybi"]
+[ext_resource type="LabelSettings" uid="uid://x57084j31ssx" path="res://game/resource/label/InputPromptText.tres" id="2_kwutp"]
 
-[node name="PREFIX" type="Label" parent="." unique_id=310797867]
+[node name="INPUT PROMPT" type="CenterContainer" unique_id=2071754019]
+offset_right = 269.0
+offset_bottom = 32.0
+script = ExtResource("1_eoybi")
+
+[node name="HBOX C" type="HBoxContainer" parent="." unique_id=1912436671]
+layout_mode = 2
+
+[node name="PREFIX" type="Label" parent="HBOX C" unique_id=310797867]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Press"
+label_settings = ExtResource("2_kwutp")
 horizontal_alignment = 1
 
-[node name="CENTERC KEY" type="CenterContainer" parent="." unique_id=1729527699]
+[node name="CENTERC KEY" type="HBoxContainer" parent="HBOX C" unique_id=151966598]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
-[node name="SUFFIX" type="Label" parent="." unique_id=822835450]
+[node name="PANELC" type="PanelContainer" parent="HBOX C/CENTERC KEY" unique_id=1245912726]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBOX C/CENTERC KEY/PANELC" unique_id=2102794325]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.18265459, 0.18462744, 0.21472892, 1)
+
+[node name="MARGIN C" type="MarginContainer" parent="HBOX C/CENTERC KEY/PANELC" unique_id=1429038942]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_right = 6
+
+[node name="KEYBIND" type="Label" parent="HBOX C/CENTERC KEY/PANELC/MARGIN C" unique_id=678609799]
+unique_name_in_owner = true
+layout_mode = 2
+text = "<unconfigured>"
+label_settings = ExtResource("2_kwutp")
+horizontal_alignment = 1
+
+[node name="SUFFIX" type="Label" parent="HBOX C" unique_id=822835450]
+unique_name_in_owner = true
 layout_mode = 2
 text = "to interact"
+label_settings = ExtResource("2_kwutp")
 horizontal_alignment = 1
