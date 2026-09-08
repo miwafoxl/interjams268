@@ -16,18 +16,20 @@ func init() -> void:
 	disable_after_trigger = flags.get("disable_after_trigger", disable_after_trigger)
 	collision_layer = flags.get("collision_layer", collision_layer)
 	collision_mask = flags.get("collision_mask", collision_mask)
-	var _parent: Node3D = get_parent()
+	enable()
+
+func enable() -> void:
 	var _area3d: Area3D = Area3D.new()
 	var _col3d: CollisionShape3D = null
-	for child: Node3D in _parent.get_children(false):
+	for child: Node3D in actor.get_children(false):
 		if child is CollisionShape3D:
 			_col3d = child.duplicate()
 	if _col3d == null:
-		print("B3DInteractable at %s: Parent has no CollisionShape3D." % self.get_path())
+		printerr("B3DInteractable at path '%s': Parent has no CollisionShape3D." % self.get_path())
 		return
 	_area3d.set_collision_layer(collision_layer)
 	_area3d.set_collision_mask(collision_mask)
-	_parent.add_child(_area3d)
+	actor.add_child(_area3d)
 	_area3d.add_child(_col3d)
 	area3d = _area3d
 
@@ -39,4 +41,4 @@ func trigger() -> void:
 	if not trigger_event.is_empty():
 		event.emit(trigger_event)
 	if disable_after_trigger:
-		area3d.set_monitorable(false)
+		area3d.queue_free()
