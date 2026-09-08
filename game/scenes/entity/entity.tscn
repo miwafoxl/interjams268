@@ -13,9 +13,8 @@ rings = 1
 radius = 0.46289063
 height = 3.6575928
 
-[node name="ENTITY" type="CharacterBody3D" unique_id=575126162 node_paths=PackedStringArray("rayc_interact")]
+[node name="ENTITY" type="CharacterBody3D" unique_id=575126162]
 script = ExtResource("1_82wee")
-rayc_interact = NodePath("RAYC INTERACT")
 
 [node name="MESH" type="MeshInstance3D" parent="." unique_id=1499530194]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7914969, 0)
@@ -25,6 +24,17 @@ mesh = SubResource("CapsuleMesh_xw857")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.869042, 0)
 shape = SubResource("CapsuleShape3D_h4hkj")
 
-[node name="RAYC INTERACT" type="RayCast3D" parent="." unique_id=861123041]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.613955, 0)
-target_position = Vector3(0, 0, 5)
+[node name="HEAD" type="Node3D" parent="." unique_id=1106786650]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="CAM" type="Camera3D" parent="HEAD" unique_id=352587785]
+unique_name_in_owner = true
+
+[node name="RAYC AIM" type="RayCast3D" parent="HEAD/CAM" unique_id=861123041]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38604498, 0)
+target_position = Vector3(0, 0, -3)
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false

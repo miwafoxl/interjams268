@@ -66,13 +66,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0065174, 0.009959102, -4.21
 collision_layer = 2
 collision_mask = 5
 verbose = true
-scripts = Array[GDScript]([ExtResource("3_jwix3"), ExtResource("5_omrot"), ExtResource("7_3jvbf")])
-
-[node name="HEAD" type="Node3D" parent="ENTITY" unique_id=453387526]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-
-[node name="CAM" type="Camera3D" parent="ENTITY/HEAD" unique_id=1801108264]
-current = true
+scripts = Array[GDScript]([ExtResource("3_jwix3"), ExtResource("5_omrot")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1088502684]
 environment = SubResource("Environment_h4hkj")
