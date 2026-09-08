@@ -1,6 +1,6 @@
 class_name GEntity extends GameObject
 
-@export var rayc_interact: RayCast3D
+@onready var rayc_interact: RayCast3D = $"RAYC INTERACT"
 
 var movement: B3DMovement = null
 var health: BHealth = null
