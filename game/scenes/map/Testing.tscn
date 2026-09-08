@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ms4q1gie1c86" path="res://game/scenes/map/Testing.gd" id="1_ju0tc"]
 [ext_resource type="PackedScene" uid="uid://dpeg8giugr232" path="res://game/scenes/entity/entity.tscn" id="2_7jdii"]
 [ext_resource type="Script" uid="uid://dhenlmgfxfip8" path="res://game/scripts/behaviour/B3DMovement.gd" id="3_jwix3"]
+[ext_resource type="Script" uid="uid://oxb0eqlh72br" path="res://game/scripts/behaviour/BHealth.gd" id="5_omrot"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xw857"]
 size = Vector3(250.52087, 0.01, 195.1148)
@@ -57,7 +58,7 @@ shape = SubResource("BoxShape3D_h4hkj")
 [node name="ENTITY" parent="." unique_id=575126162 instance=ExtResource("2_7jdii")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0065174, 0.009959102, -4.2120714)
 verbose = true
-scripts = Array[GDScript]([ExtResource("3_jwix3")])
+scripts = Array[GDScript]([ExtResource("3_jwix3"), ExtResource("5_omrot")])
 
 [node name="HEAD" type="Node3D" parent="ENTITY" unique_id=453387526]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
