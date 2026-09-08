@@ -12,6 +12,7 @@ func condition(_delta: float) -> bool:
 	move_normal = Input.get_vector("move_left", "move_right", \
 		"move_forwards", "move_backwards")
 	jump = Input.is_action_pressed("jump")
+	interact = Input.is_action_pressed("interact")
 	fire = Input.is_action_pressed("fire")
 	alt_fire = Input.is_action_pressed("alt_fire")
 	# Recapture mouse if focus was lost

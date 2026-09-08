@@ -7,6 +7,7 @@ const LOG_VERBOSE: bool = true
 
 static var current_scene: WeakRef = null # -> Node
 static var loaded_scenes: Dictionary[String, PackedScene] = {}
+static var swap_to_scene: String = ""
 
 #region CONSOLE OUT
 
@@ -77,5 +78,10 @@ func _ready() -> void:
 	load_scenes(preset_scenes)
 	if not autoload_preset_at_startup.is_empty():
 		swap_scene(autoload_preset_at_startup)
+
+func _process(_delta: float) -> void:
+	if not swap_to_scene.is_empty():
+		swap_scene(swap_to_scene)
+		swap_to_scene = ""
 
 #endregion OVERRIDES
