@@ -1,9 +1,12 @@
 class_name GEntity extends GameObject
 
+@export var rayc_interact: RayCast3D
+
 var movement: B3DMovement = null
 var health: BHealth = null
 var input: BInput = null
 var is_player: bool = false
+
 
 func after_init() -> void:
 	movement = get_behaviour("B3DMovement")
