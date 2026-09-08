@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c6wsy60k4vfcv"]
+
+[node name="VBOXC INVENTORY" type="VBoxContainer" unique_id=1639445883]
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=286663593]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=324158835]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+color = Color(0.22352941, 1, 1, 1)

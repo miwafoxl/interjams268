@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://50nea6joouju"]
+
+[node name="CENTERC" type="CenterContainer" unique_id=1693410304]
+
+[node name="HEALTH" type="Label" parent="." unique_id=1015991904]
+layout_mode = 2
+text = "Health: 100"
+horizontal_alignment = 1

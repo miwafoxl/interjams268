@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cucmkxyp82ff7"]
+
+[node name="HBOX INTERACT" type="HBoxContainer" unique_id=943756598]
+alignment = 1
+
+[node name="PREFIX" type="Label" parent="." unique_id=310797867]
+layout_mode = 2
+text = "Press"
+horizontal_alignment = 1
+
+[node name="CENTERC KEY" type="CenterContainer" parent="." unique_id=1729527699]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="SUFFIX" type="Label" parent="." unique_id=822835450]
+layout_mode = 2
+text = "to interact"
+horizontal_alignment = 1
