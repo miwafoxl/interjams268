@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d4cwhjt2tgw3m" path="res://core/src/autoload/SceneMaster.gd" id="2_lkrpm"]
 [ext_resource type="PackedScene" uid="uid://beo57todjun16" path="res://game/scenes/map/Testing.tscn" id="3_bl8ru"]
 [ext_resource type="Script" uid="uid://bpdxt37o4qsg5" path="res://core/src/autoload/ScoreMaster.gd" id="4_e5fu1"]
+[ext_resource type="Script" uid="uid://b4360wkx8s7gh" path="res://game/scripts/Items.gd" id="5_lkrpm"]
 
 [node name="Main" type="Node" unique_id=1918729238]
 
@@ -18,3 +19,6 @@ preset_scenes = Dictionary[String, PackedScene]({
 
 [node name="ScoreMaster" type="Node" parent="." unique_id=1951402427]
 script = ExtResource("4_e5fu1")
+
+[node name="Items" type="Node" parent="." unique_id=68826641]
+script = ExtResource("5_lkrpm")
