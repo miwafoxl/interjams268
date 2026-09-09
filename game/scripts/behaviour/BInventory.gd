@@ -5,7 +5,7 @@ const META_ITEM_STACK_SIZE: String = "stack_size"
 const META_ITEM_QUANTITY: String = "quantity"
 
 @export_category("Inventory")
-@export var max_items_capacity: int = 5
+@export var max_items_capacity: int = 10
 @export_group("Storage")
 @export var storage: Dictionary[String, Dictionary] = {} # Item ID: { Meta }
 @export var quantity: Dictionary[String, int] = {} # Item ID: Amount
