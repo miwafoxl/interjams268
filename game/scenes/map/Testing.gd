@@ -5,4 +5,6 @@ func _ready() -> void:
 	$"Test interaction".behaviour_event.connect(test)
 
 func test(event: String) -> void:
-	print("WAOOOOOOOO %s" % event)
+	match event:
+		"test":
+			$ENTITY.give_item("fishgame:trouble")
