@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://h3yvlgry7g7l"]
+
+[ext_resource type="PackedScene" uid="uid://bkoqqce5ao7i" path="res://game/models/error.blend" id="1_jgwln"]
+[ext_resource type="Script" uid="uid://wws7uou3bwd8" path="res://game/scenes/ui/ItemPreview/ItemPreview.gd" id="1_oq4xv"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_oq4xv"]
+exposure_multiplier = 2.116
+dof_blur_far_distance = 0.04
+
+[node name="ItemPreview" type="SubViewportContainer" unique_id=2130520356]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+script = ExtResource("1_oq4xv")
+
+[node name="SUBVIEW" type="SubViewport" parent="." unique_id=1954753105]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1155, 643)
+render_target_update_mode = 4
+
+[node name="PREVIEW" type="Node3D" parent="SUBVIEW" unique_id=918305396]
+unique_name_in_owner = true
+
+[node name="CAM" type="Camera3D" parent="SUBVIEW/PREVIEW" unique_id=1379673011]
+transform = Transform3D(-0.7071069, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.7071069, -1.5105196, 0.17779398, -1.4995443)
+attributes = SubResource("CameraAttributesPractical_oq4xv")
+projection = 1
+fov = 35.901394
+size = 1.3319463
+
+[node name="ERROR" parent="SUBVIEW/PREVIEW" unique_id=1449785491 instance=ExtResource("1_jgwln")]
+unique_name_in_owner = true
+
+[node name="MAIN L" type="OmniLight3D" parent="SUBVIEW/PREVIEW" unique_id=1343396873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7095386, 0.9927428, -0.9033072)
+omni_range = 2.0048993
+
+[node name="FILL L" type="OmniLight3D" parent="SUBVIEW/PREVIEW" unique_id=621941994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.053916, -1.3286312, 1.7453542)
+light_color = Color(0.42745098, 0.40392157, 1, 1)
