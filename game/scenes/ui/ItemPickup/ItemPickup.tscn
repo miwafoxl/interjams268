@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ba6sw55nkxd11"]
+
+[ext_resource type="LabelSettings" uid="uid://cdsycpfuj65kc" path="res://game/resource/label/Deemphasized.tres" id="1_al1w4"]
+[ext_resource type="PackedScene" uid="uid://h3yvlgry7g7l" path="res://game/scenes/ui/ItemPreview/ItemPreview.tscn" id="1_fxxaq"]
+[ext_resource type="LabelSettings" uid="uid://u7s043ykagrd" path="res://game/resource/label/Normal.tres" id="2_fxxaq"]
+
+[node name="ITEM PICKUP" type="CenterContainer" unique_id=1648320403]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PANEL C" type="PanelContainer" parent="." unique_id=640788439]
+self_modulate = Color(1, 1, 1, 0.8392157)
+layout_mode = 2
+
+[node name="MARGIN C" type="MarginContainer" parent="PANEL C" unique_id=2051126502]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBOX C" type="HBoxContainer" parent="PANEL C/MARGIN C" unique_id=1862116788]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ASPECT C" type="AspectRatioContainer" parent="PANEL C/MARGIN C/HBOX C" unique_id=1446533189]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ITEM PREVW" parent="PANEL C/MARGIN C/HBOX C/ASPECT C" unique_id=2130520356 instance=ExtResource("1_fxxaq")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBOX C" type="VBoxContainer" parent="PANEL C/MARGIN C/HBOX C" unique_id=1640095223]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="PICKUP" type="Label" parent="PANEL C/MARGIN C/HBOX C/VBOX C" unique_id=474208507]
+unique_name_in_owner = true
+layout_mode = 2
+text = "GAME.POPUP.ITEM_PICKUP"
+label_settings = ExtResource("1_al1w4")
+
+[node name="ITEM LABEL" type="Label" parent="PANEL C/MARGIN C/HBOX C/VBOX C" unique_id=369778822]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+text = "Nothing"
+label_settings = ExtResource("2_fxxaq")
