@@ -6,14 +6,28 @@ class_name GEntity extends GameObject
 
 var movement: B3DMovement = null
 var health: BHealth = null
+var inventory: BInventory = null
 var input: BInput = null
 var is_player: bool = false
 
 func after_init() -> void:
 	movement = get_behaviour("B3DMovement")
 	health = get_behaviour("BHealth")
+	inventory = get_behaviour("BInventory")
 	if not health.event.is_connected(health_event):
 		health.event.connect(health_event)
+	Items.player_inventory = inventory.export()
+
+func after_reinit() -> void:
+	Items.player_inventory = inventory.export()
+
+func give_item(item_id: String, meta: Dictionary = {}, q: int = 1) -> bool:
+	if Items.is_item_registered(item_id):
+		return inventory.add_item_q(item_id, meta, q)
+	return false
+
+func remove_item_q(item_id: String, q: int = 1) -> void:
+	return inventory.remove_item_q(item_id, q)
 
 func add_player_controls() -> void:
 	if not input == null: # PATCH: Remove me
