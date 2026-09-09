@@ -10,6 +10,8 @@ const META_ITEM_QUANTITY: String = "quantity"
 @export var storage: Dictionary[String, Dictionary] = {} # Item ID: { Meta }
 @export var quantity: Dictionary[String, int] = {} # Item ID: Amount
 
+var selected_item_slot: int = -1 # Based on storage.keys()[index]
+
 
 #region UTILITY
 
@@ -55,10 +57,11 @@ func merge_item_meta(item_id: String, meta: Dictionary, \
 func add_item_q(item_id: String, meta: Dictionary = {}, add_quantity: int = 1) -> bool:
 	var _item_exists: bool = has_item(item_id)
 	var _quantity: int = abs(add_quantity)
-	if not can_add_item_q(item_id, _quantity, FALLBACK_STACK_SIZE):
+	var _stack_size: int = Items.get_item_stack_size(item_id)
+	if not can_add_item_q(item_id, _quantity, _stack_size):
 		return false # Storage full!!
 	if not _item_exists:
-		quantity.set(item_id, min(_quantity, FALLBACK_STACK_SIZE)) 
+		quantity.set(item_id, min(_quantity, _stack_size)) 
 		storage.set(item_id, meta)
 		return true
 	merge_item_meta(item_id, meta, _item_exists)
@@ -103,18 +106,3 @@ func import(exported: Dictionary, append: bool = false) -> void:
 		storage.set(_key, _item_meta)
 
 #endregion IMPORT/EXPORT
-#region OVERRIDES
-
-# This behaviour is unique as it doesn't really add condition/action
-# behaviour. It's persistent storage for all types of gameobjects to use.
-
-func init() -> void:
-	pass
-
-func condition(_delta: float) -> bool:
-	return true
-
-func action(_delta: float) -> void:
-	pass
-
-#endregion OVERRIDES
