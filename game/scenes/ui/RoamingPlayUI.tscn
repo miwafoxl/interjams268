@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://88qs41w0iyu1" path="res://game/scenes/ui/RoamingPlayUI.gd" id="1_aj3u8"]
 [ext_resource type="PackedScene" uid="uid://cucmkxyp82ff7" path="res://game/scenes/ui/InputPromptText/InputPromptText.tscn" id="1_e1yxh"]
-[ext_resource type="PackedScene" uid="uid://50nea6joouju" path="res://game/scenes/ui/HealthView/HealthView.tscn" id="2_aj3u8"]
+[ext_resource type="PackedScene" uid="uid://ba6sw55nkxd11" path="res://game/scenes/ui/ItemPickup/ItemPickup.tscn" id="2_aj3u8"]
 [ext_resource type="PackedScene" uid="uid://c6wsy60k4vfcv" path="res://game/scenes/ui/InventoryView/InventoryView.tscn" id="3_i78sj"]
 
 [node name="ROAM PLAY UI" type="Control" unique_id=528503119]
@@ -28,22 +28,28 @@ theme_override_constants/margin_bottom = 30
 
 [node name="VBOXC STATUS" type="VBoxContainer" parent="MARGINC" unique_id=1056872467]
 layout_mode = 2
-alignment = 2
 
-[node name="HBOX INTERACT" parent="MARGINC/VBOXC STATUS" unique_id=943756598 instance=ExtResource("1_e1yxh")]
+[node name="VBOXC HI" type="VBoxContainer" parent="MARGINC/VBOXC STATUS" unique_id=785119533]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ITEM PICKUP" parent="MARGINC/VBOXC STATUS/VBOXC HI" unique_id=347339804 instance=ExtResource("2_aj3u8")]
+layout_mode = 2
+
+[node name="VBOXC MID" type="VBoxContainer" parent="MARGINC/VBOXC STATUS" unique_id=832816436]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBOXC LOW" type="VBoxContainer" parent="MARGINC/VBOXC STATUS" unique_id=1324578341]
+layout_mode = 2
+
+[node name="HBOX INTERACT" parent="MARGINC/VBOXC STATUS/VBOXC LOW" unique_id=943756598 instance=ExtResource("1_e1yxh")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 untranslated_string = &"GAME.INTERACTION.INTERACT"
 action_name = "interact"
-
-[node name="MARGINC" type="MarginContainer" parent="MARGINC/VBOXC STATUS" unique_id=908996918]
-layout_mode = 2
-theme_override_constants/margin_top = 40
-
-[node name="HEALTH" parent="MARGINC/VBOXC STATUS/MARGINC" unique_id=1693410304 instance=ExtResource("2_aj3u8")]
-layout_mode = 2
 
 [node name="VBOXC INVENTORY" parent="MARGINC" unique_id=1639445883 instance=ExtResource("3_i78sj")]
 layout_mode = 2
