@@ -14,6 +14,7 @@ radius = 0.46289063
 height = 3.6575928
 
 [node name="ENTITY" type="CharacterBody3D" unique_id=575126162]
+collision_layer = 0
 script = ExtResource("1_82wee")
 
 [node name="MESH" type="MeshInstance3D" parent="." unique_id=1499530194]
