@@ -1,0 +1,88 @@
+[gd_scene format=4 uid="uid://dtymn71exiqel"]
+
+[ext_resource type="Script" uid="uid://1563pv7aqvuq" path="res://game/scenes/item/Item.gd" id="1_npgxc"]
+[ext_resource type="Script" uid="uid://bmxmstke2oxnf" path="res://game/scripts/behaviour/B3DInteractable.gd" id="2_v1p6e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iebee"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e7rdc"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABAACAAYAAwAHAAUACAAEAAYABwAJAAUACAAGAAoABwALAAkADAAIAAoACwANAAkADAAKAA4ACwAPAA0AEAAMAA4ADwARAA0AEAAOABIADwATABEAFAAQABIAEwAVABEAFAASABYAEwAXABUAGAAUABYAFwAZABUAGAAWABoAFwAbABkAHAAYABoAGwAdABkAHAAaAB4AGwAfAB0AHwAcAB4AHwAeAB0A"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("/38AAAAAAAD7sP//vgkAAP9///8AAAAA+7AAAL4JAAADTwAAvgkAAIHa//99JQAAA0///74JAACB2gAAfSUAAH0lAAB9JQAAQPb//wNPAAB9Jf//fSUAAED2AAADTwAAvgkAAANPAAD//////38AAL4J//8DTwAA//8AAP9/AAAAAAAA/38AAED2///7sAAAAAD///9/AABA9gAA+7AAAL4JAAD7sAAAgdr//4HaAAC+Cf//+7AAAIHaAACB2gAAfSUAAIHaAAD7sP//QPYAAH0l//+B2gAA+7AAAED2AAADTwAAQPYAAP9//////wAAA0///0D2AAD/fwAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v1p6e"]
+resource_name = "pickup_haze_Cylinder"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("///////vAAD//wAA/+/////v////3wAA/+8AAP/f////3////88AAP/fAAD/z////8////+/AAD/zwAA/7////+/////rwAA/78AAP+v////r////58AAP+vAAD/n////5////+PAAD/nwAA/4////+P////fwAA/48AAP9/////f////28AAP9/AAD/b////2////9fAAD/bwAA/1////9f////TwAA/18AAP9P////T////z8AAP9PAAD/P////z////8vAAD/PwAA/y////8v////HwAA/y8AAP8f////H////w8AAP8fAAD/D////w///wAAAAD/DwAAAAD//w=="),
+"format": 34896613399,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0A"),
+"material": SubResource("StandardMaterial3D_iebee"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 64,
+"vertex_data": PackedByteArray("/38AAAAA/vf7sP//vgn+9/9///8AAP73+7AAAL4J/vf7sAAAvgn/54Ha//99Jf/n+7D//74J/+eB2gAAfSX/54HaAAB9Jf/XQPb//wNP/9eB2v//fSX/10D2AAADT//XQPYAAANP/8f//////3//x0D2//8DT//H//8AAP9//8f//wAA/3//t0D2///7sP+3//////9//7dA9gAA+7D/t0D2AAD7sP+ngdr//4Ha/6dA9v//+7D/p4HaAACB2v+ngdoAAIHa/5f7sP//QPb/l4Ha//+B2v+X+7AAAED2/5f7sAAAQPb/h/9///////+H+7D//0D2/4f/fwAA////h/9/AAD///+HA0///0D2/4f/f///////hwNPAABA9v+HA08AAED2/5d9Jf//gdr/lwNP//9A9v+XfSUAAIHa/5d9JQAAgdr/p74J///7sP+nfSX//4Ha/6e+CQAA+7D/p74JAAD7sP+3AAD///9//7e+Cf//+7D/twAAAAD/f/+3AAAAAP9//8e+Cf//A0//xwAA////f//HvgkAAANP/8e+CQAAA0//130l//99Jf/Xvgn//wNP/9d9JQAAfSX/130lAAB9Jf/nA0///74J/+d9Jf//fSX/5wNPAAC+Cf/nA08AAL4J/vf/f///AAD+9wNP//++Cf73/38AAAAA/vf/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_e7rdc")
+
+[sub_resource type="Gradient" id="Gradient_ic05i"]
+offsets = PackedFloat32Array(0, 0.9285714)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x6ske"]
+gradient = SubResource("Gradient_ic05i")
+use_hdr = true
+fill_from = Vector2(0.53977275, 0.19886364)
+fill_to = Vector2(0.57954544, 0.9943182)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4hkj"]
+transparency = 1
+blend_mode = 1
+depth_draw_mode = 1
+albedo_texture = SubResource("GradientTexture2D_x6ske")
+grow_amount = 0.15
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h4hkj"]
+radius = 1.1949949
+
+[node name="ITEM" type="Area3D" unique_id=287331326]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_npgxc")
+item_id = null
+item_q = null
+item_meta = null
+cooldown_sec = null
+enabled = null
+verbose = null
+scripts = Array[GDScript]([ExtResource("2_v1p6e")])
+flags = Dictionary[String, Variant]({
+"collision_layer": 16,
+"collision_mask": 2,
+"disable_after_trigger": true,
+"trigger_event": "pickup",
+"trigger_on_overlap": true
+})
+
+[node name="HAZE" type="MeshInstance3D" parent="." unique_id=801594943]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0051389, 0)
+mesh = SubResource("ArrayMesh_v1p6e")
+surface_material_override/0 = SubResource("StandardMaterial3D_h4hkj")
+
+[node name="COL SH" type="CollisionShape3D" parent="." unique_id=472356660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57977235, 0)
+shape = SubResource("SphereShape3D_h4hkj")
+
+[node name="TIMER" type="Timer" parent="." unique_id=771544192]
+unique_name_in_owner = true
