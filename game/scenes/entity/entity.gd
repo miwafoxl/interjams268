@@ -23,7 +23,10 @@ func after_reinit() -> void:
 
 func give_item(item_id: String, meta: Dictionary = {}, q: int = 1) -> bool:
 	if Items.is_item_registered(item_id):
-		return inventory.add_item_q(item_id, meta, q)
+		var _added_q: int = inventory.add_item_q(item_id, meta, q)
+		if is_player and _added_q > 0:
+			RoamPlayUI.toast_item(item_id, _added_q)
+		return true
 	return false
 
 func remove_item_q(item_id: String, q: int = 1) -> void:
