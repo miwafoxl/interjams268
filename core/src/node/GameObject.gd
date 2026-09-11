@@ -142,8 +142,8 @@ func init_behaviours(behaviour_array: Array[Behaviour]) -> void:
 #endregion MANAGING BEHAVIOURS
 #region EVENTS
 
-func dispatch_event(event: StringName) -> void:
-	behaviour_event.emit(event)
+func dispatch_event(event: StringName, ...args) -> void:
+	behaviour_event.emit(event, args)
 	
 #endregion EVENTS
 #region FLAGS
