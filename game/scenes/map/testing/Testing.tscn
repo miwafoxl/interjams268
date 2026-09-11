@@ -1,15 +1,12 @@
 [gd_scene format=3 uid="uid://beo57todjun16"]
 
-[ext_resource type="PackedScene" uid="uid://bcc1jiynq30s5" path="res://game/scenes/map/source/roam_map.blend" id="1_e78k8"]
-[ext_resource type="Script" uid="uid://ms4q1gie1c86" path="res://game/scenes/map/Testing.gd" id="1_ju0tc"]
+[ext_resource type="PackedScene" uid="uid://cg07oq61ndg5n" path="res://game/scenes/map/testing/source/roam_map.blend" id="1_e78k8"]
+[ext_resource type="Script" uid="uid://ms4q1gie1c86" path="res://game/scenes/map/testing/Testing.gd" id="1_ju0tc"]
 [ext_resource type="PackedScene" uid="uid://dpeg8giugr232" path="res://game/scenes/entity/entity.tscn" id="2_7jdii"]
 [ext_resource type="PackedScene" uid="uid://dqjo05hgks35m" path="res://game/scenes/ui/RoamingPlayUI.tscn" id="2_i7vr4"]
-[ext_resource type="Script" uid="uid://dhenlmgfxfip8" path="res://game/scripts/behaviour/B3DMovement.gd" id="3_jwix3"]
 [ext_resource type="PackedScene" uid="uid://br1ma414jw13v" path="res://game/scenes/ui/ViewModel/ViewModel.tscn" id="3_xahx3"]
-[ext_resource type="Script" uid="uid://oxb0eqlh72br" path="res://game/scripts/behaviour/BHealth.gd" id="5_omrot"]
 [ext_resource type="Script" uid="uid://bmxmstke2oxnf" path="res://game/scripts/behaviour/B3DInteractable.gd" id="7_3jvbf"]
 [ext_resource type="Script" uid="uid://xqlj2d4kt16i" path="res://game/scripts/gameobject/Template.gd" id="7_q3t2c"]
-[ext_resource type="Script" uid="uid://d27chbqn04c1l" path="res://game/scripts/behaviour/BInventory.gd" id="7_xqc3x"]
 [ext_resource type="PackedScene" uid="uid://dtymn71exiqel" path="res://game/scenes/item/Item.tscn" id="10_xu2rp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xw857"]
@@ -75,7 +72,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0065174, 0.009959102, -4.21
 collision_layer = 2
 collision_mask = 21
 verbose = true
-scripts = Array[GDScript]([ExtResource("3_jwix3"), ExtResource("5_omrot"), ExtResource("7_xqc3x")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1088502684]
 environment = SubResource("Environment_h4hkj")
