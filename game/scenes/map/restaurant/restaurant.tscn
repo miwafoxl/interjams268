@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bgkgc8cnso83d"]
+
+[ext_resource type="Script" uid="uid://b3iywvcqlxibt" path="res://game/scenes/map/restaurant/restaurant.gd" id="1_hdjh0"]
+[ext_resource type="PackedScene" uid="uid://bh30she7py5vq" path="res://game/scenes/map/restaurant/source/restaurant.blend" id="2_8yxrm"]
+[ext_resource type="PackedScene" uid="uid://dpeg8giugr232" path="res://game/scenes/entity/entity.tscn" id="3_kant0"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_h4hkj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xw857"]
+size = Vector3(1, 16.4693, 32.282776)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8yxrm"]
+size = Vector3(1, 16.4693, 21.181427)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hdjh0"]
+size = Vector3(60.232025, 16.4693, 0.7385254)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kant0"]
+size = Vector3(1, 16.4693, 2.8031693)
+
+[node name="Restaurant" type="Node3D" unique_id=483535365]
+script = ExtResource("1_hdjh0")
+
+[node name="restaurant" parent="." unique_id=1220502653 instance=ExtResource("2_8yxrm")]
+
+[node name="PLAYER" parent="." unique_id=575126162 instance=ExtResource("3_kant0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.219911, 0, 0.6534033)
+
+[node name="COL SH" type="StaticBody3D" parent="." unique_id=958747629]
+collision_mask = 0
+
+[node name="WORLD BOUND" type="CollisionShape3D" parent="COL SH" unique_id=347929623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.099152565, 0)
+shape = SubResource("WorldBoundaryShape3D_h4hkj")
+
+[node name="WALL" type="CollisionShape3D" parent="COL SH" unique_id=492277531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.858053, 7.7346497, -0.23120117)
+shape = SubResource("BoxShape3D_xw857")
+
+[node name="WALL2" type="CollisionShape3D" parent="COL SH" unique_id=1928722205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.44123, 7.7346497, 0.099090576)
+shape = SubResource("BoxShape3D_xw857")
+
+[node name="WALL3" type="CollisionShape3D" parent="COL SH" unique_id=438686661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.275518, 7.7346497, 5.3194733)
+shape = SubResource("BoxShape3D_8yxrm")
+
+[node name="WALL4" type="CollisionShape3D" parent="COL SH" unique_id=190749737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0079135895, 7.7346497, 16.467512)
+shape = SubResource("BoxShape3D_hdjh0")
+
+[node name="WALL5" type="CollisionShape3D" parent="COL SH" unique_id=546414169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0079135895, 7.7346497, -16.620373)
+shape = SubResource("BoxShape3D_hdjh0")
+
+[node name="WALL6" type="CollisionShape3D" parent="COL SH" unique_id=366875924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.275518, 7.7346497, -14.929005)
+shape = SubResource("BoxShape3D_kant0")
+
+[node name="LIGHTS" type="Node3D" parent="." unique_id=461061296]
+
+[node name="LIGHT TABLE" type="OmniLight3D" parent="LIGHTS" unique_id=610008742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.224712, 16.068092, -0.009805679)
+light_color = Color(1, 0.8117647, 0.69411767, 1)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 50.033432
+
+[node name="LIGHT CUISINE" type="OmniLight3D" parent="LIGHTS" unique_id=1013021062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.352783, 16.068092, -8.314091)
+light_color = Color(0.91764706, 1, 1, 1)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 50.033432
+
+[node name="LIGHT CUISINE2" type="OmniLight3D" parent="LIGHTS" unique_id=1813329580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.352783, 16.068092, 8.312628)
+light_color = Color(0.91764706, 1, 1, 1)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 50.033432
+
+[node name="LIGHT TABLE2" type="OmniLight3D" parent="LIGHTS" unique_id=1797526042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0669594, 16.068092, -0.009805679)
+light_color = Color(1, 0.8117647, 0.69411767, 1)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 50.033432
