@@ -1,5 +1,7 @@
 class_name ItemPreview extends SubViewportContainer
 
+const ERROR_MODEL: String = "res://game/models/error.blend"
+
 var loaded: Node3D = null
 
 func display(item_id: String) -> bool:
@@ -14,7 +16,7 @@ func display(item_id: String) -> bool:
 		push_warning("[ItemPreview] Item '%s' has no model to preview." % item_id)
 		%ERROR.set_visible(true)
 		return false
-	var _model: Node3D = load("res://game/models/error.blend").instantiate()
+	var _model: Node3D = load(ERROR_MODEL).instantiate()
 	loaded = _model
 	%PREVIEW.add_child(_model)
 	%ERROR.set_visible(false)
