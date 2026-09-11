@@ -57,7 +57,6 @@ func health_event(event: String, _by: String) -> void:
 
 func process(_delta: float) -> void:
 	var _interact: Area3D = rayc.get_collider()
-	RoamPlayUI.can_interact = _interact != null
 	if not input == null:
 		movement.vector = (head.transform.basis * Vector3(input.move_normal.x, \
 				input.jump, input.move_normal.y).normalized())
@@ -65,6 +64,7 @@ func process(_delta: float) -> void:
 			var _b: B3DInteractable = GameObject.get_behaviour_from(_interact.get_parent(), "B3DInteractable")
 			if not _b == null: _b.trigger()
 		if is_player:
+			RoamPlayUI.can_interact = _interact != null
 			var _player_input: BPlayerInput = input
 			head.rotate_y(-_player_input.aim_transformed.x)
 			cam.rotate_x(-_player_input.aim_transformed.y)
