@@ -2,6 +2,7 @@
 
 [ext_resource type="LabelSettings" uid="uid://cdsycpfuj65kc" path="res://game/resource/label/Deemphasized.tres" id="1_al1w4"]
 [ext_resource type="PackedScene" uid="uid://h3yvlgry7g7l" path="res://game/scenes/ui/ItemPreview/ItemPreview.tscn" id="1_fxxaq"]
+[ext_resource type="Script" uid="uid://bsr6o7eodugqi" path="res://game/scenes/ui/ItemPickup/ItemPickup.gd" id="1_h7bso"]
 [ext_resource type="LabelSettings" uid="uid://u7s043ykagrd" path="res://game/resource/label/Normal.tres" id="2_fxxaq"]
 
 [node name="ITEM PICKUP" type="CenterContainer" unique_id=1648320403]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_h7bso")
 
 [node name="PANEL C" type="PanelContainer" parent="." unique_id=640788439]
 self_modulate = Color(1, 1, 1, 0.8392157)
