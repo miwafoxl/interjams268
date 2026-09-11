@@ -37,10 +37,12 @@ func add_player_controls() -> void:
 		input.set_enabled(false)
 	insert_behaviour(BPlayerInput.new())
 	input = get_behaviour("BPlayerInput")
+	ViewModel.provide_behaviours(inventory, input)
 	cam.make_current()
 	is_player = true
 
 func add_cpu_controls() -> void:
+	# TODO: add remove_behaviour("BPlayerInput") to GameObject
 	print_debug("Not implemented")
 	is_player = false
 	cam.clear_current()
