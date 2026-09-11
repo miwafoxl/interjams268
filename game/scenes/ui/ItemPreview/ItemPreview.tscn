@@ -3,10 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bkoqqce5ao7i" path="res://game/models/error.blend" id="1_jgwln"]
 [ext_resource type="Script" uid="uid://wws7uou3bwd8" path="res://game/scenes/ui/ItemPreview/ItemPreview.gd" id="1_oq4xv"]
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_oq4xv"]
-exposure_multiplier = 2.116
-dof_blur_far_distance = 0.04
-
 [node name="ItemPreview" type="SubViewportContainer" unique_id=2130520356]
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,7 +28,6 @@ unique_name_in_owner = true
 
 [node name="CAM" type="Camera3D" parent="SUBVIEW/PREVIEW" unique_id=1379673011]
 transform = Transform3D(-0.7071069, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.7071069, -1.5105196, 0.17779398, -1.4995443)
-attributes = SubResource("CameraAttributesPractical_oq4xv")
 projection = 1
 fov = 35.901394
 size = 1.3319463
