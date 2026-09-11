@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://dpeg8giugr232"]
 
 [ext_resource type="Script" uid="uid://w8it33lcygta" path="res://game/scenes/entity/entity.gd" id="1_82wee"]
+[ext_resource type="Script" uid="uid://dhenlmgfxfip8" path="res://game/scripts/behaviour/B3DMovement.gd" id="2_54dio"]
+[ext_resource type="Script" uid="uid://oxb0eqlh72br" path="res://game/scripts/behaviour/BHealth.gd" id="3_0kbyl"]
+[ext_resource type="Script" uid="uid://d27chbqn04c1l" path="res://game/scripts/behaviour/BInventory.gd" id="4_m4biv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xw857"]
 lightmap_size_hint = Vector2i(15, 13)
@@ -16,6 +19,7 @@ height = 3.6575928
 [node name="ENTITY" type="CharacterBody3D" unique_id=575126162]
 collision_layer = 0
 script = ExtResource("1_82wee")
+scripts = Array[GDScript]([ExtResource("2_54dio"), ExtResource("3_0kbyl"), ExtResource("4_m4biv")])
 
 [node name="MESH" type="MeshInstance3D" parent="." unique_id=1499530194]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7914969, 0)
