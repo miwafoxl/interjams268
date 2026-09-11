@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://br1ma414jw13v"]
+
+[ext_resource type="Script" uid="uid://dn8nfn1eu5qbx" path="res://game/scenes/ui/ViewModel/ViewModel.gd" id="1_81477"]
+[ext_resource type="PackedScene" uid="uid://bkoqqce5ao7i" path="res://game/models/error.blend" id="1_ef3ae"]
+
+[node name="ViewModel" type="Control" unique_id=1610176714]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_81477")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1723827494]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1867787289]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="VIEWMODEL" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=536970599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9287837, 0)
+current = true
+fov = 38.414906
+
+[node name="MODEL" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=91914304]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.27528977, 2.4032373, -1.1909616)
+
+[node name="ERROR" parent="SubViewportContainer/SubViewport/MODEL" unique_id=1449785491 instance=ExtResource("1_ef3ae")]
+unique_name_in_owner = true
+visible = false
+
+[node name="MAIN" type="OmniLight3D" parent="SubViewportContainer/SubViewport" unique_id=1553371651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6258805, 3.6121423, -2.4049306)
+
+[node name="FILL" type="OmniLight3D" parent="SubViewportContainer/SubViewport" unique_id=1525749364]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2610865, 2.7958157, 0.46567583)
+light_color = Color(0.4721576, 0.57704794, 0.9305948, 1)
+light_energy = 0.7
+omni_range = 3.2038863
