@@ -32,16 +32,17 @@ func has_items_q(items: Dictionary) -> bool: # Item ID: Min amount
 			_has = false; break
 	return _has
 
-func can_add_item_q(item_id: String = "", add_quantity: int = 1, \
-		limit: int = FALLBACK_STACK_SIZE) -> bool:
+func can_add_item_q(item_id: String, add_quantity: int, \
+		current_quantity: int, limit: int = FALLBACK_STACK_SIZE) -> int:
 	var _storage: Dictionary = storage.get(item_id, {})
 	var _storage_size: int = storage.size()
-	var _stack_size: int = _storage.get(META_ITEM_STACK_SIZE, 0)
-	if _stack_size + abs(add_quantity) > limit:
-		return false
+	if current_quantity == limit:
+		return 0
+	if current_quantity + abs(add_quantity) > limit:
+		return limit - current_quantity
 	if _storage_size >= max_items_capacity:
-		return has_item(item_id)
-	return true
+		return has_item(item_id) as int
+	return abs(add_quantity)
 
 #endregion UTILITY
 #region INVENTORY MANAGEMENT
@@ -54,18 +55,19 @@ func merge_item_meta(item_id: String, meta: Dictionary, \
 		return
 	storage.set(item_id, meta)
 
-func add_item_q(item_id: String, meta: Dictionary = {}, add_quantity: int = 1) -> bool:
+func add_item_q(item_id: String, meta: Dictionary = {}, add_quantity: int = 1) -> int:
 	var _item_exists: bool = has_item(item_id)
-	var _quantity: int = abs(add_quantity)
+	var _cur_q: int = quantity.get(item_id, 0)
 	var _stack_size: int = Items.get_item_stack_size(item_id)
-	if not can_add_item_q(item_id, _quantity, _stack_size):
-		return false # Storage full!!
+	var _allowed_q: int = can_add_item_q(item_id, abs(add_quantity), _cur_q, _stack_size)
+	if _allowed_q == 0:
+		return 0 # Can't add item!!!
+	quantity.set(item_id, min(_cur_q + _allowed_q, _stack_size)) 
 	if not _item_exists:
-		quantity.set(item_id, min(_quantity, _stack_size)) 
 		storage.set(item_id, meta)
-		return true
+		return _allowed_q
 	merge_item_meta(item_id, meta, _item_exists)
-	return true
+	return _allowed_q
 
 func remove_item_q(item_id: String, remove_quantity: int = 1) -> void:
 	var _item_exists: bool = has_item(item_id)
