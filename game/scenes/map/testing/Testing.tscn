@@ -28,27 +28,49 @@ sky_material = SubResource("ProceduralSkyMaterial_omrot")
 [sub_resource type="Environment" id="Environment_h4hkj"]
 background_mode = 2
 sky = SubResource("Sky_ju0tc")
+ambient_light_source = 2
+ambient_light_color = Color(0.8514, 0.731, 0.86, 1)
+ambient_light_energy = 0.15
+reflected_light_source = 1
+ssao_radius = 1.2
+sdfgi_read_sky_light = false
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0385
 volumetric_fog_length = 7.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x6ske"]
-size = Vector3(1, 3.716919, 1)
+size = Vector3(1, 3.716919, 10.291748)
 
-[node name="Testing" type="Node3D" unique_id=1787220777]
+[node name="TESTING" type="Node3D" unique_id=1787220777]
 script = ExtResource("1_ju0tc")
 
-[node name="ViewModel" parent="." unique_id=1610176714 instance=ExtResource("3_xahx3")]
+[node name="VIEWMODEL" parent="." unique_id=1610176714 instance=ExtResource("3_xahx3")]
 
 [node name="ROAM PLAY UI" parent="." unique_id=528503119 instance=ExtResource("2_i7vr4")]
 mouse_filter = 2
 
 [node name="LEVEL MESH" parent="." unique_id=984467645 instance=ExtResource("1_e78k8")]
 
-[node name="SUN" type="DirectionalLight3D" parent="." unique_id=1552061537]
-transform = Transform3D(-0.002248317, -0.8661061, 0.49985558, -0.30643058, 0.47640672, 0.82409775, -0.95189023, -0.15131828, -0.2664724, 1.9792328, 0, 0)
-light_color = Color(0.6539951, 0.60932237, 0.56809485, 1)
+[node name="FILL" type="DirectionalLight3D" parent="." unique_id=1967000231]
+transform = Transform3D(0.70043784, -0.22339194, 0.6778522, -0.7074568, -0.091830276, 0.7007654, -0.09429781, -0.9703933, -0.22236133, 3.2922947, -0.1637545, -1.4718748)
+light_color = Color(0.82, 0.82, 0.82, 1)
+light_energy = 0.3
+light_bake_mode = 1
+shadow_normal_bias = 1.5
+shadow_reverse_cull_face = true
+shadow_opacity = 0.33
+shadow_blur = 0.357
+sky_mode = 1
+
+[node name="MAIN" type="DirectionalLight3D" parent="." unique_id=1552061537]
+transform = Transform3D(0.14018697, 0.8975572, -0.4180175, -0.58313787, 0.41604185, 0.69775337, 0.8001862, 0.14594597, 0.58172333, 1.9792328, 0, 0)
+light_color = Color(0.75385076, 0.712777, 0.67866737, 1)
+light_energy = 1.25
+light_bake_mode = 1
 shadow_enabled = true
+shadow_normal_bias = 0.74
+shadow_reverse_cull_face = true
+shadow_blur = 0.357
 sky_mode = 1
 
 [node name="MAP COL" type="StaticBody3D" parent="." unique_id=1447148933]
@@ -67,16 +89,16 @@ debug_color = Color(0.8857458, 0.33067507, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.1863, -20.022472, 85.82283)
 shape = SubResource("BoxShape3D_h4hkj")
 
-[node name="ENTITY" parent="." unique_id=575126162 instance=ExtResource("2_7jdii")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0065174, 0.009959102, -4.2120714)
+[node name="PLAYER" parent="." unique_id=575126162 instance=ExtResource("2_7jdii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.758537, 0.009959102, -19.928806)
 collision_layer = 2
 collision_mask = 21
 verbose = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1088502684]
+[node name="ENVIRONMENT" type="WorldEnvironment" parent="." unique_id=1088502684]
 environment = SubResource("Environment_h4hkj")
 
-[node name="Test interaction" type="StaticBody3D" parent="." unique_id=257420384]
+[node name="INTER TEST" type="StaticBody3D" parent="." unique_id=257420384]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("7_q3t2c")
@@ -86,13 +108,13 @@ flags = Dictionary[String, Variant]({
 "trigger_event": "test"
 })
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Test interaction" unique_id=631246364]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="INTER TEST" unique_id=631246364]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3584595, 0)
 shape = SubResource("BoxShape3D_x6ske")
 debug_color = Color(0.9779586, 0, 0.40373692, 0.41960785)
 
 [node name="ITEM" parent="." unique_id=2075903897 instance=ExtResource("10_xu2rp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.67654, 0.005001068, -5.6487627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.13157, 0.005001068, 28.186478)
 item_id = "fishgame:raw_fish"
 item_q = 60
 item_meta = {}
@@ -101,10 +123,26 @@ enabled = true
 verbose = false
 
 [node name="ITEM2" parent="." unique_id=287331326 instance=ExtResource("10_xu2rp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.67654, 0.005001068, 3.6696997)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.977615, 0.005001068, 35.0982)
 item_id = "fishgame:tinpia"
 item_q = 1
 item_meta = {}
 cooldown_sec = 5.0
 enabled = true
 verbose = false
+
+[node name="RESTAUR ENTER" type="StaticBody3D" parent="." unique_id=1301662219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.557014, 0, 40.3455)
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("7_q3t2c")
+scripts = Array[GDScript]([ExtResource("7_3jvbf")])
+flags = Dictionary[String, Variant]({
+"disable_after_trigger": true,
+"trigger_scene_swap": "restaurant"
+})
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RESTAUR ENTER" unique_id=1939310172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29142, 3.3009033)
+shape = SubResource("BoxShape3D_x6ske")
+debug_color = Color(0.9779586, 0, 0.40373692, 0.41960785)
