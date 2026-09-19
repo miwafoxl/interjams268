@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgkgc8cnso83d" path="res://game/scenes/map/restaurant/restaurant.tscn" id="4_f8dtr"]
 [ext_resource type="Script" uid="uid://b4360wkx8s7gh" path="res://game/scripts/Items.gd" id="5_lkrpm"]
 [ext_resource type="Script" uid="uid://bqxcqe86o1hwn" path="res://game/scripts/Weather.gd" id="6_e5fu1"]
+[ext_resource type="Script" uid="uid://ho50bo1wu0um" path="res://game/scripts/Cooking.gd" id="8_od2lk"]
 
 [node name="Main" type="Node" unique_id=1918729238]
 
@@ -29,3 +30,7 @@ script = ExtResource("5_lkrpm")
 [node name="Weather" type="Node" parent="." unique_id=260200213]
 script = ExtResource("6_e5fu1")
 metadata/_custom_type_script = "uid://bqxcqe86o1hwn"
+
+[node name="Cooking" type="Node" parent="." unique_id=1763651838]
+script = ExtResource("8_od2lk")
+metadata/_custom_type_script = "uid://ho50bo1wu0um"
