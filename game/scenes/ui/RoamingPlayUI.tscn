@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://88qs41w0iyu1" path="res://game/scenes/ui/RoamingPlayUI.gd" id="1_aj3u8"]
 [ext_resource type="PackedScene" uid="uid://cucmkxyp82ff7" path="res://game/scenes/ui/InputPromptText/InputPromptText.tscn" id="1_e1yxh"]
+[ext_resource type="PackedScene" uid="uid://cgx5tysursgjt" path="res://game/scenes/ui/TemperatureMeter/TemperatureMeter.tscn" id="2_aj3u8"]
 [ext_resource type="PackedScene" uid="uid://c6wsy60k4vfcv" path="res://game/scenes/ui/InventoryView/InventoryView.tscn" id="3_i78sj"]
+[ext_resource type="PackedScene" uid="uid://yv737a5totgy" path="res://game/scenes/ui/PercentageMeter/PercentageMeter.tscn" id="3_u0yu1"]
 
 [node name="ROAM PLAY UI" type="Control" unique_id=528503119]
 layout_mode = 3
@@ -30,15 +32,39 @@ layout_mode = 2
 
 [node name="VBOXC HI" type="HBoxContainer" parent="MARGINC/VBOXC STATUS" unique_id=406775587]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
+
+[node name="TGAUGE" parent="MARGINC/VBOXC STATUS/VBOXC HI" unique_id=940446705 instance=ExtResource("2_aj3u8")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TCORE" parent="MARGINC/VBOXC STATUS/VBOXC HI" unique_id=2124744143 instance=ExtResource("2_aj3u8")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TSURFACE" parent="MARGINC/VBOXC STATUS/VBOXC HI" unique_id=1024059246 instance=ExtResource("2_aj3u8")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PCORE CK" parent="MARGINC/VBOXC STATUS/VBOXC HI" unique_id=1354692917 instance=ExtResource("3_u0yu1")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PSURF CK" parent="MARGINC/VBOXC STATUS/VBOXC HI" unique_id=665219832 instance=ExtResource("3_u0yu1")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PGAUGE" parent="MARGINC/VBOXC STATUS/VBOXC HI" unique_id=1622015926 instance=ExtResource("3_u0yu1")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="VBOXC MID" type="VBoxContainer" parent="MARGINC/VBOXC STATUS" unique_id=832816436]
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="VBOXC LOW" type="VBoxContainer" parent="MARGINC/VBOXC STATUS" unique_id=1324578341]
+custom_minimum_size = Vector2(0, 62)
 layout_mode = 2
 
 [node name="HBOX INTERACT" parent="MARGINC/VBOXC STATUS/VBOXC LOW" unique_id=943756598 instance=ExtResource("1_e1yxh")]
