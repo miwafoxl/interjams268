@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cgx5tysursgjt"]
+
+[ext_resource type="Script" uid="uid://d2fhe78nlhjtj" path="res://game/scenes/ui/TemperatureMeter/TemperatureMeter.gd" id="1_cpfnt"]
+
+[node name="TemperatureMeter" type="PanelContainer" unique_id=940446705]
+anchors_preset = -1
+anchor_right = 0.109000005
+anchor_bottom = 0.097
+offset_right = -0.5680084
+offset_bottom = 0.14399719
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cpfnt")
+temperature_ok = Color(1, 1, 1, 1)
+temperature_under = Color(0.6555825, 0.7330365, 1, 1)
+temperature_bad = Color(0.9612374, 0, 0.22367409, 1)
+
+[node name="MARGIN C" type="MarginContainer" parent="." unique_id=1025684194]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBOX C" type="VBoxContainer" parent="MARGIN C" unique_id=2019290984]
+layout_mode = 2
+
+[node name="DEGREES" type="Label" parent="MARGIN C/VBOX C" unique_id=369589456]
+unique_name_in_owner = true
+layout_mode = 2
+text = "DEGREES"
+horizontal_alignment = 1
+
+[node name="DESC" type="Label" parent="MARGIN C/VBOX C" unique_id=2029083524]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.60784316)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "TITLE"
+horizontal_alignment = 1
