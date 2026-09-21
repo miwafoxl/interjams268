@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://yv737a5totgy"]
+
+[ext_resource type="Script" uid="uid://bmxvfmyghqf3x" path="res://game/scenes/ui/PercentageMeter/PercentageMeter.gd" id="1_24ga0"]
+
+[node name="PercentageMeter" type="PanelContainer" unique_id=940446705]
+anchors_preset = -1
+anchor_right = 0.109000005
+anchor_bottom = 0.097
+offset_right = -0.5680084
+offset_bottom = 0.14399719
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_24ga0")
+value_ok = Color(1, 1, 1, 1)
+value_bad = Color(0.97, 0.42162672, 0.3492, 1)
+
+[node name="MARGIN C" type="MarginContainer" parent="." unique_id=1025684194]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBOX C" type="VBoxContainer" parent="MARGIN C" unique_id=2019290984]
+layout_mode = 2
+
+[node name="PERCENTAGE" type="Label" parent="MARGIN C/VBOX C" unique_id=369589456]
+unique_name_in_owner = true
+layout_mode = 2
+text = "%"
+horizontal_alignment = 1
+
+[node name="DESC" type="Label" parent="MARGIN C/VBOX C" unique_id=2029083524]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.60784316)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "TITLE"
+horizontal_alignment = 1
