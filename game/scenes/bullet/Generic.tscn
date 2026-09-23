@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bqqefl5w6nyvj"]
+
+[ext_resource type="Script" uid="uid://4k1vief6uk8s" path="res://game/scenes/bullet/Bullet.gd" id="1_f04fm"]
+[ext_resource type="Script" uid="uid://c74aw5t6a83c8" path="res://game/scripts/behaviour/B3DBullet.gd" id="2_ivoip"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_h4hkj"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xw857"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h4hkj"]
+radius = 0.2
+
+[node name="GBULLET" type="AnimatableBody3D" unique_id=136579349]
+collision_layer = 32
+collision_mask = 5
+script = ExtResource("1_f04fm")
+speed = 300.0
+scripts = Array[GDScript]([ExtResource("2_ivoip")])
+
+[node name="PROJECTILE MESH" type="MeshInstance3D" parent="." unique_id=1438952176]
+mesh = SubResource("SphereMesh_h4hkj")
+surface_material_override/0 = SubResource("StandardMaterial3D_xw857")
+
+[node name="COL SH" type="CollisionShape3D" parent="." unique_id=1041474947]
+shape = SubResource("SphereShape3D_h4hkj")
