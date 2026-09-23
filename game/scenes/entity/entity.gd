@@ -1,25 +1,34 @@
 class_name GEntity extends GameObject
 
+signal b_inited
+
 @onready var rayc: RayCast3D = %"RAYC AIM"
 @onready var head: Node3D = %HEAD
 @onready var cam: Camera3D = %CAM
+@onready var gspammer: GameObject = %SPAMMER
 
 var movement: B3DMovement = null
 var health: BHealth = null
 var inventory: BInventory = null
 var input: BInput = null
+var spammer: B3DSpammer = null
 var is_player: bool = false
 
 func after_init() -> void:
 	movement = get_behaviour("B3DMovement")
 	health = get_behaviour("BHealth")
 	inventory = get_behaviour("BInventory")
+	spammer = gspammer.get_behaviour("B3DSpammer")
+	spammer.spawn_node = SceneMaster.get_current()
+	spammer.origin_node = %ORIGIN
 	if not health.event.is_connected(health_event):
 		health.event.connect(health_event)
-	Items.player_inventory = inventory.export()
+	if not inventory.event.is_connected(inventory_event):
+		inventory.event.connect(inventory_event)
+	b_inited.emit()
 
-func after_reinit() -> void:
-	Items.player_inventory = inventory.export()
+#func after_reinit() -> void:
+	#Items.player_inventory = inventory.export()
 
 func give_item(item_id: String, meta: Dictionary = {}, q: int = 1) -> bool:
 	if Items.is_item_registered(item_id):
