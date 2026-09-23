@@ -28,7 +28,7 @@ func modify_hp(amount: int, last_chance: bool = false, by: String = "") -> void:
 			super_hp -= 1
 			hp = MAXIMUM_HEALTH
 		else:
-			if last_chance:
+			if last_chance and not last_chance_trigger:
 				last_chance_trigger = true
 				hp = MINIMUM_HEALTH + 1
 				event.emit("damage", by)
