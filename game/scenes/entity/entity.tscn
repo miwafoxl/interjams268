@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://dhenlmgfxfip8" path="res://game/scripts/behaviour/B3DMovement.gd" id="2_54dio"]
 [ext_resource type="Script" uid="uid://oxb0eqlh72br" path="res://game/scripts/behaviour/BHealth.gd" id="3_0kbyl"]
 [ext_resource type="Script" uid="uid://d27chbqn04c1l" path="res://game/scripts/behaviour/BInventory.gd" id="4_m4biv"]
+[ext_resource type="Script" uid="uid://xqlj2d4kt16i" path="res://game/scripts/gameobject/Template.gd" id="5_m4biv"]
+[ext_resource type="Script" uid="uid://bwbvqf2diavve" path="res://game/scripts/behaviour/B3DSpammer.gd" id="6_t6lmm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xw857"]
 lightmap_size_hint = Vector2i(15, 13)
@@ -36,6 +38,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 [node name="CAM" type="Camera3D" parent="HEAD" unique_id=352587785]
 unique_name_in_owner = true
 
+[node name="SPAMMER" type="Node3D" parent="HEAD/CAM" unique_id=1045321952]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.52173436)
+script = ExtResource("5_m4biv")
+enabled = false
+scripts = Array[GDScript]([ExtResource("6_t6lmm")])
+flags = Dictionary[String, Variant]({
+"spam_scn": "res://game/scenes/bullet/Generic.tscn"
+})
+
 [node name="RAYC AIM" type="RayCast3D" parent="HEAD/CAM" unique_id=861123041]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.38604498, 0)
@@ -43,3 +55,12 @@ target_position = Vector3(0, 0, -3)
 collision_mask = 8
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="AIM" type="Marker3D" parent="HEAD/CAM" unique_id=1902870009]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.230189)
+gizmo_extents = 0.17
+
+[node name="ORIGIN" type="Marker3D" parent="HEAD/CAM" unique_id=568284272]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.30933785, -1.6749257)
