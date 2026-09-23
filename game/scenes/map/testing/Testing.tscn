@@ -126,7 +126,6 @@ verbose = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.977615, 0.005001068, 35.0982)
 item_id = "fishgame:tinpia"
 item_q = 1
-item_meta = {}
 cooldown_sec = 5.0
 enabled = true
 verbose = false
