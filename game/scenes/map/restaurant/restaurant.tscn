@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b3iywvcqlxibt" path="res://game/scenes/map/restaurant/restaurant.gd" id="1_hdjh0"]
 [ext_resource type="PackedScene" uid="uid://bh30she7py5vq" path="res://game/scenes/map/restaurant/source/restaurant.blend" id="2_8yxrm"]
+[ext_resource type="PackedScene" uid="uid://br1ma414jw13v" path="res://game/scenes/ui/ViewModel/ViewModel.tscn" id="2_kant0"]
 [ext_resource type="PackedScene" uid="uid://dpeg8giugr232" path="res://game/scenes/entity/entity.tscn" id="3_kant0"]
+[ext_resource type="PackedScene" uid="uid://dtymn71exiqel" path="res://game/scenes/item/Item.tscn" id="5_kant0"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_h4hkj"]
 
@@ -21,10 +23,14 @@ size = Vector3(1, 16.4693, 2.8031693)
 [node name="Restaurant" type="Node3D" unique_id=483535365]
 script = ExtResource("1_hdjh0")
 
-[node name="restaurant" parent="." unique_id=1220502653 instance=ExtResource("2_8yxrm")]
+[node name="VIEWMODEL" parent="." unique_id=1610176714 instance=ExtResource("2_kant0")]
 
 [node name="PLAYER" parent="." unique_id=575126162 instance=ExtResource("3_kant0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.219911, 0, 14.522642)
+collision_layer = 2
+collision_mask = 85
+
+[node name="restaurant" parent="." unique_id=1220502653 instance=ExtResource("2_8yxrm")]
 
 [node name="COL SH" type="StaticBody3D" parent="." unique_id=958747629]
 collision_mask = 0
@@ -61,14 +67,14 @@ shape = SubResource("BoxShape3D_kant0")
 
 [node name="LIGHT TABLE" type="OmniLight3D" parent="LIGHTS" unique_id=610008742]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.224712, 16.068092, -0.009805679)
-light_color = Color(1, 0.8117647, 0.69411767, 1)
+light_color = Color(0.7372549, 0.60784316, 0.6313726, 1)
 light_energy = 2.0
 shadow_enabled = true
 omni_range = 50.033432
 
 [node name="LIGHT CUISINE" type="OmniLight3D" parent="LIGHTS" unique_id=1013021062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.352783, 16.068092, -8.314091)
-light_color = Color(0.91764706, 1, 1, 1)
+light_color = Color(0.65882355, 0.6901961, 0.6156863, 1)
 light_energy = 2.0
 shadow_enabled = true
 omni_range = 50.033432
@@ -82,7 +88,20 @@ omni_range = 50.033432
 
 [node name="LIGHT TABLE2" type="OmniLight3D" parent="LIGHTS" unique_id=1797526042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0669594, 16.068092, -0.009805679)
-light_color = Color(1, 0.8117647, 0.69411767, 1)
+light_color = Color(0.8784314, 0.6156863, 0.5803922, 1)
 light_energy = 2.0
 shadow_enabled = true
 omni_range = 50.033432
+
+[node name="ITEM2" parent="." unique_id=287331326 instance=ExtResource("5_kant0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9621425, 0.005001068, 11.388243)
+item_id = "fishgame:tinpia"
+item_q = 1
+item_meta = {}
+enabled = true
+verbose = false
+
+[node name="ENEMY" parent="." unique_id=182078346 instance=ExtResource("3_kant0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8630562, -0.09915161, -8.45487)
+collision_layer = 4
+collision_mask = 35
