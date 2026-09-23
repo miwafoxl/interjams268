@@ -16,6 +16,7 @@ script = ExtResource("1_bl8ru")
 
 [node name="SceneMaster" type="Node" parent="." unique_id=1286801116]
 script = ExtResource("2_lkrpm")
+autoload_preset_at_startup = "restaurant"
 preset_scenes = Dictionary[String, PackedScene]({
 "default": ExtResource("3_bl8ru"),
 "restaurant": ExtResource("4_f8dtr")

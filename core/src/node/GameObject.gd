@@ -180,7 +180,7 @@ func _process(delta: float) -> void:
 	if do_behaviour_init:
 		init_behaviours(behaviours.values())
 		do_behaviour_init = false
-	if not behaviours.is_empty():
+	if enabled and (not behaviours.is_empty()):
 		for _b: Behaviour in behaviours.values():
 			if _b.enabled and _b.condition(delta): 
 				_b.action(delta)
@@ -191,7 +191,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if do_behaviour_init: return # Disable processing
-	if not behaviours.is_empty():
+	if enabled and (not behaviours.is_empty()):
 		for _b: Behaviour in behaviours.values():
 			if _b.enabled and _b.condition_physics(delta): 
 				_b.action_physics(delta)

@@ -14,7 +14,7 @@ func init() -> void:
 	super_hp = flags.get("super_hp", super_hp)
 	is_immortal = flags.get("is_immortal", is_immortal)
 
-func modify_hp(amount: int, by: String = "", last_chance: bool = true) -> void:
+func modify_hp(amount: int, last_chance: bool = false, by: String = "") -> void:
 	if amount + hp > MAXIMUM_HEALTH:
 		if allow_superheal:
 			hp = MINIMUM_HEALTH
@@ -28,7 +28,7 @@ func modify_hp(amount: int, by: String = "", last_chance: bool = true) -> void:
 			super_hp -= 1
 			hp = MAXIMUM_HEALTH
 		else:
-			if last_chance:
+			if last_chance and not last_chance_trigger:
 				last_chance_trigger = true
 				hp = MINIMUM_HEALTH + 1
 				event.emit("damage", by)

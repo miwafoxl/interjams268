@@ -4,7 +4,6 @@ const DEFAULT_CAT: String = "fishgame"
 const UNKNOWN_ITEM_TR: String = "GAME.ITEMS.UNKNOWN"
 
 static var registered_items: Dictionary = {}
-static var player_inventory: Dictionary = {}
 
 enum Type {
 	UNKNOWN,

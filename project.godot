@@ -13,6 +13,7 @@ config_version=5
 config/name="Interjams 26 8 (Untitled)"
 run/main_scene="uid://bj3db1dyycyj6"
 config/features=PackedStringArray("4.7", "Mobile")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [audio]
@@ -23,6 +24,7 @@ buses/default_bus_layout="uid://k6tgwqe4wmc7"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
 
 [file_customization]
 
@@ -132,6 +134,8 @@ weapon_scroll_down={
 3d_physics/layer_3="enemy"
 3d_physics/layer_4="interactable"
 3d_physics/layer_5="dropped_items"
+3d_physics/layer_6="friendly_bullet"
+3d_physics/layer_7="enemy_bullet"
 
 [physics]
 

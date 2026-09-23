@@ -12,7 +12,32 @@ const META_ITEM_QUANTITY: String = "quantity"
 
 var selected_item_slot: int = -1 # Based on storage.keys()[index]
 
+#region SELECT
 
+func is_item_selected(item_id: String) -> bool:
+	if selected_item_slot == -1: return false
+	return storage.keys()[selected_item_slot] == item_id
+
+func select_item_at_index(index: int) -> bool:
+	var _size: int = storage.size()
+	if index >= _size:
+		push_warning("[BInventory] Can't select out of bounds item index %s (>= %s)" % [index, _size])
+		return false
+	if not selected_item_slot == index:
+		var _item_id: String = storage.keys()[index] if index >= 0 else ""
+		selected_item_slot = index
+		event.emit("selection_changed", _item_id)
+	return true
+
+func select_item_id(item_id: String) -> bool:
+	var _index: int = storage.keys().find(item_id)
+	if _index == -1:
+		push_warning("[BInventory] Can't select unobtained item_id '%s'" % item_id)
+		return false
+	select_item_at_index(_index)
+	return true
+
+#endregion SELECT
 #region UTILITY
 
 func has_item(item_id: String) -> bool:
