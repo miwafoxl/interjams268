@@ -57,8 +57,14 @@ func add_cpu_controls() -> void:
 	print_debug("Not implemented")
 	is_player = false
 	cam.clear_current()
+	
 
-func health_event(event: String, _by: String) -> void:
+#region HEALTH
+
+func change_hp(delta: int) -> void:
+	health.modify_hp(delta)
+
+func health_event(event: String, ..._args) -> void:
 	match event:
 		"max_health": pass
 		"min_health": 
@@ -66,17 +72,32 @@ func health_event(event: String, _by: String) -> void:
 		"heal": pass
 		"damage": pass
 
+#endregion HEALTH
+
+func inventory_event(event: String, ...args) -> void:
+	match event:
+		"selection_changed":
+			var _item_id: String = args[0]
+			match Items.get_item_type(_item_id):
+				Items.Type.WEAPON:
+					gspammer.set_enabled(true)
+				_:
+					gspammer.set_enabled(false)
+	
+
 func process(_delta: float) -> void:
 	var _interact: Area3D = rayc.get_collider()
 	if not input == null:
 		movement.vector = (head.transform.basis * Vector3(input.move_normal.x, \
 				input.jump, input.move_normal.y).normalized())
+		spammer.spawn_vector = (head.global_position.direction_to(%AIM.global_position))
 		if input.interact and _interact != null:
 			var _b: B3DInteractable = GameObject.get_behaviour_from(_interact.get_parent(), "B3DInteractable")
 			if not _b == null: _b.trigger()
 		if is_player:
-			RoamPlayUI.can_interact = _interact != null
 			var _player_input: BPlayerInput = input
+			RoamPlayUI.can_interact = _interact != null
+			spammer.spamming = _player_input.fire
 			head.rotate_y(-_player_input.aim_transformed.x)
 			cam.rotate_x(-_player_input.aim_transformed.y)
 			cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-80), deg_to_rad(80))
