@@ -134,6 +134,8 @@ weapon_scroll_down={
 3d_physics/layer_3="enemy"
 3d_physics/layer_4="interactable"
 3d_physics/layer_5="dropped_items"
+3d_physics/layer_6="friendly_bullet"
+3d_physics/layer_7="enemy_bullet"
 
 [physics]
 
