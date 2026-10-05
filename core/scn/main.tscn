@@ -5,9 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://beo57todjun16" path="res://game/scenes/map/testing/Testing.tscn" id="3_bl8ru"]
 [ext_resource type="Script" uid="uid://bpdxt37o4qsg5" path="res://core/src/autoload/ScoreMaster.gd" id="4_e5fu1"]
 [ext_resource type="PackedScene" uid="uid://bgkgc8cnso83d" path="res://game/scenes/map/restaurant/restaurant.tscn" id="4_f8dtr"]
+[ext_resource type="PackedScene" uid="uid://dtjrjo2xgvdrf" path="res://game/scenes/ui/EndGameScreen.tscn" id="5_5nlnx"]
 [ext_resource type="Script" uid="uid://b4360wkx8s7gh" path="res://game/scripts/Items.gd" id="5_lkrpm"]
 [ext_resource type="Script" uid="uid://bqxcqe86o1hwn" path="res://game/scripts/Weather.gd" id="6_e5fu1"]
 [ext_resource type="Script" uid="uid://ho50bo1wu0um" path="res://game/scripts/Cooking.gd" id="8_od2lk"]
+[ext_resource type="Script" uid="uid://c56kcxik1xqcp" path="res://game/scripts/Progression.gd" id="9_3jtat"]
+[ext_resource type="Script" uid="uid://cki0uor8gg1af" path="res://game/scripts/Random.gd" id="11_xlq0b"]
 
 [node name="Main" type="Node" unique_id=1918729238]
 
@@ -19,6 +22,7 @@ script = ExtResource("2_lkrpm")
 autoload_preset_at_startup = "restaurant"
 preset_scenes = Dictionary[String, PackedScene]({
 "default": ExtResource("3_bl8ru"),
+"end_game": ExtResource("5_5nlnx"),
 "restaurant": ExtResource("4_f8dtr")
 })
 
@@ -35,3 +39,11 @@ metadata/_custom_type_script = "uid://bqxcqe86o1hwn"
 [node name="Cooking" type="Node" parent="." unique_id=1763651838]
 script = ExtResource("8_od2lk")
 metadata/_custom_type_script = "uid://ho50bo1wu0um"
+
+[node name="Progression" type="Node" parent="." unique_id=1819452250]
+script = ExtResource("9_3jtat")
+metadata/_custom_type_script = "uid://c56kcxik1xqcp"
+
+[node name="Random" type="Node" parent="." unique_id=1764211400]
+script = ExtResource("11_xlq0b")
+metadata/_custom_type_script = "uid://cki0uor8gg1af"
