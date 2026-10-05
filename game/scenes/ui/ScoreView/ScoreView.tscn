@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://ufk5u74nmnia"]
+
+[ext_resource type="Script" uid="uid://nydughrn523i" path="res://game/scenes/ui/ScoreView/ScoreView.gd" id="1_kwbai"]
+
+[node name="SCORE VIEW" type="Control" unique_id=1878199108]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kwbai")
+
+[node name="VBOX C" type="VBoxContainer" parent="." unique_id=1751557234]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RLABEL" type="RichTextLabel" parent="VBOX C" unique_id=211185225]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "123"
+scroll_active = false
+autowrap_mode = 0
+tab_size = 0
+shortcut_keys_enabled = false
+
+[node name="RLABEL DIFF" type="RichTextLabel" parent="VBOX C" unique_id=1733044098]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 25)
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "123"
+scroll_active = false
+autowrap_mode = 0
+tab_size = 0
+shortcut_keys_enabled = false
+
+[node name="DIFF" type="Timer" parent="." unique_id=1971667336]
+wait_time = 2.8
+one_shot = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1313831743]
+layout_mode = 0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 10.0
+bbcode_enabled = true
+text = "[color=gray][font size=16
+ height=2 sln=0.8]PTS[/font][/color]"
+scroll_active = false
