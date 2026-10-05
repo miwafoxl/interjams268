@@ -44,6 +44,8 @@ script = ExtResource("5_m4biv")
 enabled = false
 scripts = Array[GDScript]([ExtResource("6_t6lmm")])
 flags = Dictionary[String, Variant]({
+"call_method_args": [true],
+"call_method_name": &"set_player_bullet",
 "spam_scn": "res://game/scenes/bullet/Generic.tscn"
 })
 
