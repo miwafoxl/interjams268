@@ -1,13 +1,13 @@
 class_name BPlayerInput extends BInput
 
-var mouse_smoothness: float = 0.7
-var mouse_sensitivity: float = 5.0 # real value is divided by 1000
+var mouse_smoothness: float = 0.25
+var mouse_sensitivity: float = 4.0 # real value is divided by 1000
 var aim_transformed: Vector2 = Vector2.ZERO
 
 func init() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func condition(_delta: float) -> bool:
+func condition(delta: float) -> bool:
 	# Gets the movement vector normalized and if player is firing
 	move_normal = Input.get_vector("move_left", "move_right", \
 		"move_forwards", "move_backwards")
@@ -23,7 +23,7 @@ func condition(_delta: float) -> bool:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	# Smoothes the aim
 	aim_transformed = lerp(aim_transformed, (mouse_sensitivity / 1000.0) * 
-			aim_normal, 1 - clampf(mouse_smoothness, 0, 0.98))
+			aim_normal, 1 - clampf(mouse_smoothness * delta, 0, 0.98))
 	aim_normal = Vector2.ZERO # Prevents self-moving mouse bug
 	return true
 
