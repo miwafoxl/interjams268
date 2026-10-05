@@ -10,6 +10,7 @@ script = ExtResource("1_eoybi")
 
 [node name="HBOX C" type="HBoxContainer" parent="." unique_id=1912436671]
 layout_mode = 2
+alignment = 1
 
 [node name="PREFIX" type="Label" parent="HBOX C" unique_id=310797867]
 unique_name_in_owner = true
@@ -21,6 +22,7 @@ horizontal_alignment = 1
 [node name="CENTERC KEY" type="HBoxContainer" parent="HBOX C" unique_id=151966598]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
+alignment = 1
 
 [node name="PANELC" type="PanelContainer" parent="HBOX C/CENTERC KEY" unique_id=1245912726]
 layout_mode = 2
