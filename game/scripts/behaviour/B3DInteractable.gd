@@ -5,6 +5,7 @@ var trigger_callable: Callable = Callable()
 var trigger_scene_swap: String = ""
 var trigger_event: String = ""
 var disable_after_trigger: bool = false
+var disable_autoenable: bool = false
 var collision_layer: int = 0b00000000_00000000_00000000_00001000
 var collision_mask: int = 0b00000000_00000000_00000000_00000010
 
@@ -12,6 +13,7 @@ var area3d: Area3D = null
 var last_collisors: Array[Node3D] = []
 
 func init() -> void:
+	disable_autoenable = flags.get("disable_autoenable", disable_autoenable)
 	trigger_on_overlap = flags.get("trigger_on_overlap", trigger_on_overlap)
 	trigger_scene_swap = flags.get("trigger_scene_swap", trigger_scene_swap)
 	trigger_callable = flags.get("trigger_callable", trigger_callable)
@@ -19,7 +21,7 @@ func init() -> void:
 	disable_after_trigger = flags.get("disable_after_trigger", disable_after_trigger)
 	collision_layer = flags.get("collision_layer", collision_layer)
 	collision_mask = flags.get("collision_mask", collision_mask)
-	enable()
+	if not disable_autoenable: enable()
 
 func condition(_delta: float) -> bool:
 	if trigger_on_overlap and not area3d == null:
@@ -39,7 +41,7 @@ func enable() -> void:
 		if child is CollisionShape3D:
 			_col3d = child.duplicate()
 			_col3d.set_name(&"B3DInteractableCollisor")
-	if _col3d == null:
+	if _col3d == null:		
 		printerr("B3DInteractable at path '%s': Parent has no CollisionShape3D." % self.get_path())
 		return
 	_area3d.set_collision_layer(collision_layer)
