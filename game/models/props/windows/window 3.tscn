@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b60t6g6hcd4q5"]
+
+[ext_resource type="Script" uid="uid://gg3ok4akfkwq" path="res://game/scripts/gameobject/GWindow.gd" id="1_g85os"]
+[ext_resource type="Script" uid="uid://bmxmstke2oxnf" path="res://game/scripts/behaviour/B3DInteractable.gd" id="2_oybjx"]
+[ext_resource type="PackedScene" uid="uid://h24lultdkd5f" path="res://game/models/props/windows/window 3.glb" id="3_g85os"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h4hkj"]
+size = Vector3(0.72872925, 4.316284, 1.9885254)
+
+[node name="WIND3" type="StaticBody3D" unique_id=1909539145]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_g85os")
+scripts = Array[GDScript]([ExtResource("2_oybjx")])
+flags = Dictionary[String, Variant]({
+"disable_after_trigger": true,
+"disable_autoenable": true,
+"trigger_event": "toggle"
+})
+
+[node name="UP" parent="." unique_id=491268093 instance=ExtResource("3_g85os")]
+unique_name_in_owner = true
+
+[node name="DOWN" parent="." unique_id=127929400 instance=ExtResource("3_g85os")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0.17489624, 0, 0)
+
+[node name="COLSH" type="CollisionShape3D" parent="." unique_id=1211198663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28666687, 0.035583496, 0)
+shape = SubResource("BoxShape3D_h4hkj")
+
+[node name="POS CLOSED" type="Marker3D" parent="." unique_id=304078045]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0.120180964, 0, 0)
+
+[node name="POS OPEN" type="Marker3D" parent="." unique_id=1896440823]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0.120180964, 2.227934, 0)
+
+[node name="CD" type="Timer" parent="." unique_id=47117860]
+wait_time = 0.25
+one_shot = true
+
+[node name="SCORE CD" type="Timer" parent="." unique_id=1771725644]
+wait_time = 30.0
+one_shot = true

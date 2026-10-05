@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bsvj4mosgg7iw"]
+
+[ext_resource type="Script" uid="uid://b7mo17bmwjp1v" path="res://game/scripts/gameobject/GProp.gd" id="1_bjxcv"]
+[ext_resource type="PackedScene" uid="uid://cthbm1jj8pxtj" path="res://game/models/props/chair/chair.glb" id="1_wgghs"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bjxcv"]
+friction = 2.0
+bounce = 0.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bjxcv"]
+size = Vector3(0.9707031, 1.3730129, 1.0881348)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xs4un"]
+size = Vector3(0.13300195, 0.7716348, 1.0915527)
+
+[node name="CHAIR" type="Node3D" unique_id=971783367]
+script = ExtResource("1_bjxcv")
+
+[node name="RIGID" type="RigidBody3D" parent="." unique_id=46936730]
+unique_name_in_owner = true
+collision_mask = 7
+mass = 1.5
+physics_material_override = SubResource("PhysicsMaterial_bjxcv")
+constant_torque = Vector3(0, 1, 0)
+
+[node name="COLSH" type="CollisionShape3D" parent="RIGID" unique_id=843259082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019365676, 0.633326, 0)
+shape = SubResource("BoxShape3D_bjxcv")
+
+[node name="COLSH2" type="CollisionShape3D" parent="RIGID" unique_id=259766429]
+transform = Transform3D(0.9931986, 0.116432615, 0, -0.116432615, 0.9931986, 0, 0, 0, 1, 0.45065758, 1.8776809, 0)
+shape = SubResource("BoxShape3D_xs4un")
+
+[node name="MESH" parent="RIGID" unique_id=604495044 instance=ExtResource("1_wgghs")]
+
+[editable path="RIGID/MESH"]

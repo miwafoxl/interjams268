@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dp0mgujs13jx7"]
+
+[ext_resource type="Script" uid="uid://b7mo17bmwjp1v" path="res://game/scripts/gameobject/GProp.gd" id="1_qlehp"]
+[ext_resource type="PackedScene" uid="uid://b42neiiowyhg" path="res://game/models/props/table/table.glb" id="2_34ue7"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xw857"]
+height = 1.8065796
+radius = 0.056640625
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_h4hkj"]
+height = 0.042284966
+radius = 1.1298828
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_x6ske"]
+height = 0.044128418
+
+[node name="TABLE" type="Node3D" unique_id=1258809546]
+script = ExtResource("1_qlehp")
+
+[node name="RIGID" type="RigidBody3D" parent="." unique_id=1426410248]
+unique_name_in_owner = true
+collision_mask = 103
+mass = 3.0
+
+[node name="COLSH2" type="CollisionShape3D" parent="RIGID" unique_id=2137559276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92562866, 0)
+shape = SubResource("CylinderShape3D_xw857")
+
+[node name="COLSH" type="CollisionShape3D" parent="RIGID" unique_id=2119586907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8885229, 0)
+shape = SubResource("CylinderShape3D_h4hkj")
+
+[node name="MESH" parent="RIGID" unique_id=683866695 instance=ExtResource("2_34ue7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RIGID" unique_id=899478797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.024871826, 0)
+shape = SubResource("CylinderShape3D_x6ske")

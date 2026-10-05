@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cfj1vrvcwljx"]
+
+[ext_resource type="Script" uid="uid://b7mo17bmwjp1v" path="res://game/scripts/gameobject/GProp.gd" id="1_4070a"]
+[ext_resource type="PackedScene" uid="uid://dtxv6lfx0gyyy" path="res://game/models/props/low chair/low chair.glb" id="2_1e26v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_47tlo"]
+size = Vector3(0.9433594, 1.1228493, 1.1872559)
+
+[node name="LOW CHAIR" type="Node3D" unique_id=137884801]
+script = ExtResource("1_4070a")
+
+[node name="RIGID" type="RigidBody3D" parent="." unique_id=652714937]
+unique_name_in_owner = true
+
+[node name="COLSH" type="CollisionShape3D" parent="RIGID" unique_id=922572362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5084045, 0)
+shape = SubResource("BoxShape3D_47tlo")
+
+[node name="MESH" parent="RIGID" unique_id=1604288401 instance=ExtResource("2_1e26v")]
+
+[editable path="RIGID/MESH"]
