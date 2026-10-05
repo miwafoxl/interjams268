@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://w8it33lcygta" path="res://game/scenes/entity/entity.gd" id="1_82wee"]
 [ext_resource type="Script" uid="uid://dhenlmgfxfip8" path="res://game/scripts/behaviour/B3DMovement.gd" id="2_54dio"]
 [ext_resource type="Script" uid="uid://oxb0eqlh72br" path="res://game/scripts/behaviour/BHealth.gd" id="3_0kbyl"]
-[ext_resource type="Script" uid="uid://d27chbqn04c1l" path="res://game/scripts/behaviour/BInventory.gd" id="4_m4biv"]
 [ext_resource type="Script" uid="uid://xqlj2d4kt16i" path="res://game/scripts/gameobject/Template.gd" id="5_m4biv"]
 [ext_resource type="Script" uid="uid://bwbvqf2diavve" path="res://game/scripts/behaviour/B3DSpammer.gd" id="6_t6lmm"]
 
@@ -21,7 +20,7 @@ height = 3.6575928
 [node name="ENTITY" type="CharacterBody3D" unique_id=575126162]
 collision_layer = 0
 script = ExtResource("1_82wee")
-scripts = Array[GDScript]([ExtResource("2_54dio"), ExtResource("3_0kbyl"), ExtResource("4_m4biv")])
+scripts = Array[GDScript]([ExtResource("2_54dio"), ExtResource("3_0kbyl")])
 
 [node name="MESH" type="MeshInstance3D" parent="." unique_id=1499530194]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7914969, 0)
@@ -33,7 +32,7 @@ shape = SubResource("CapsuleShape3D_h4hkj")
 
 [node name="HEAD" type="Node3D" parent="." unique_id=1106786650]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 
 [node name="CAM" type="Camera3D" parent="HEAD" unique_id=352587785]
 unique_name_in_owner = true
