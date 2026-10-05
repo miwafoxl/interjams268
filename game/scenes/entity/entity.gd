@@ -1,6 +1,7 @@
 class_name GEntity extends GameObject
 
 signal b_inited
+signal min_health_reached
 
 @onready var rayc: RayCast3D = %"RAYC AIM"
 @onready var head: Node3D = %HEAD
@@ -23,12 +24,7 @@ func after_init() -> void:
 	spammer.origin_node = %ORIGIN
 	if not health.event.is_connected(health_event):
 		health.event.connect(health_event)
-	if not inventory.event.is_connected(inventory_event):
-		inventory.event.connect(inventory_event)
 	b_inited.emit()
-
-#func after_reinit() -> void:
-	#Items.player_inventory = inventory.export()
 
 func give_item(item_id: String, meta: Dictionary = {}, q: int = 1) -> bool:
 	if Items.is_item_registered(item_id):
@@ -48,18 +44,30 @@ func add_player_controls() -> void:
 		input.set_enabled(false)
 	insert_behaviour(BPlayerInput.new())
 	input = get_behaviour("BPlayerInput")
+	inventory = Progression.player_inventory
 	ViewModel.provide_behaviours(inventory, input)
 	cam.make_current()
 	is_player = true
+	
+	if not inventory.event.is_connected(inventory_event):
+		inventory.event.connect(inventory_event)
 
 func add_cpu_controls() -> void:
 	# TODO: add remove_behaviour("BPlayerInput") to GameObject
-	print_debug("Not implemented")
-	is_player = false
+	insert_behaviour(BInventory.new())
+	inventory = get_behaviour("BInventory")
 	cam.clear_current()
+	is_player = false
+
+	if not inventory.event.is_connected(inventory_event):
+		inventory.event.connect(inventory_event)
 	
 
 #region HEALTH
+
+func death() -> void:
+	min_health_reached.emit()
+	queue_free()
 
 func change_hp(delta: int) -> void:
 	health.modify_hp(delta)
@@ -68,7 +76,7 @@ func health_event(event: String, ..._args) -> void:
 	match event:
 		"max_health": pass
 		"min_health": 
-			queue_free() # TODO: Placeholder
+			death() # TODO: Placeholder
 		"heal": pass
 		"damage": pass
 
@@ -97,6 +105,7 @@ func process(_delta: float) -> void:
 		if is_player:
 			var _player_input: BPlayerInput = input
 			RoamPlayUI.can_interact = _interact != null
+			GameUI.can_interact = _interact != null
 			spammer.spamming = _player_input.fire
 			head.rotate_y(-_player_input.aim_transformed.x)
 			cam.rotate_x(-_player_input.aim_transformed.y)
