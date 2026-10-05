@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cx1l2ml8j2n3y"]
+
+[ext_resource type="PackedScene" uid="uid://ufk5u74nmnia" path="res://game/scenes/ui/ScoreView/ScoreView.tscn" id="1_81ced"]
+[ext_resource type="Script" uid="uid://rg06xihopeqq" path="res://game/scenes/ui/GameUI.gd" id="1_d7rrg"]
+[ext_resource type="PackedScene" uid="uid://b58v7mr7jvd8t" path="res://game/scenes/ui/DialogueView/DialogueView.tscn" id="3_1cdf2"]
+[ext_resource type="PackedScene" uid="uid://cucmkxyp82ff7" path="res://game/scenes/ui/InputPromptText/InputPromptText.tscn" id="4_k12o1"]
+
+[node name="GAME UI" type="Control" unique_id=84716735]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_d7rrg")
+
+[node name="SCORE VIEW" parent="." unique_id=1878199108 instance=ExtResource("1_81ced")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 22.0
+offset_top = 36.0
+offset_right = -925.0
+offset_bottom = -546.0
+
+[node name="DIALOGUE VIEW" parent="." unique_id=2062935637 instance=ExtResource("3_1cdf2")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.508
+anchor_top = 0.703
+anchor_right = 0.508
+anchor_bottom = 0.703
+offset_left = -100.216
+offset_top = -26.544006
+offset_right = 99.784
+offset_bottom = 26.455994
+metadata/_edit_use_anchors_ = true
+
+[node name="CROSSHAIR" type="ColorRect" parent="." unique_id=1885508904]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.5
+offset_top = -1.5
+offset_right = 1.5
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1071360135]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="INTERACT PROMPT" parent="CenterContainer" unique_id=2071754019 instance=ExtResource("4_k12o1")]
+unique_name_in_owner = true
+layout_mode = 2
+untranslated_string = &"GAME.INTERACTION.WINDOW"
+action_name = "interact"
